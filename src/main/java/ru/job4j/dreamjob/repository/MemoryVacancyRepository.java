@@ -3,6 +3,8 @@ package ru.job4j.dreamjob.repository;
 import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Repository;
 import ru.job4j.dreamjob.model.Vacancy;
+
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Optional;
@@ -16,12 +18,12 @@ public class MemoryVacancyRepository implements VacancyRepository {
     private final Map<Integer, Vacancy> vacancies = new ConcurrentHashMap<>();
 
     private MemoryVacancyRepository() {
-        save(new Vacancy(0, "Intern Java Developer", "Description of the intern", true));
-        save(new Vacancy(0, "Junior Java Developer", "Description of the junior", false));
-        save(new Vacancy(0, "Junior+ Java Developer", "Description of the junior+", true));
-        save(new Vacancy(0, "Middle Java Developer", "Description of the middle", true));
-        save(new Vacancy(0, "Middle+ Java Developer", "Description of the middle+", false));
-        save(new Vacancy(0, "Senior Java Developer", "Description of the senior", true));
+        save(new Vacancy(0, "Intern Java Developer", "Description of the intern", LocalDateTime.now(), true, 1));
+        save(new Vacancy(0, "Junior Java Developer", "Description of the junior", LocalDateTime.now(),false, 3));
+        save(new Vacancy(0, "Junior+ Java Developer", "Description of the junior+", LocalDateTime.now(),true, 1));
+        save(new Vacancy(0, "Middle Java Developer", "Description of the middle", LocalDateTime.now(),true, 2));
+        save(new Vacancy(0, "Middle+ Java Developer", "Description of the middle+", LocalDateTime.now(),false, 3));
+        save(new Vacancy(0, "Senior Java Developer", "Description of the senior", LocalDateTime.now(),true, 1));
     }
 
     @Override
@@ -39,7 +41,7 @@ public class MemoryVacancyRepository implements VacancyRepository {
     @Override
     public boolean update(Vacancy vacancy) {
         return vacancies.computeIfPresent(vacancy.getId(),
-                (id, oldVacancy) -> new Vacancy(oldVacancy.getId(), vacancy.getTitle(), vacancy.getDescription(), vacancy.getVisible())) != null;
+                (id, oldVacancy) -> new Vacancy(oldVacancy.getId(), vacancy.getTitle(), vacancy.getDescription(), vacancy.getCreationDate(), vacancy.getVisible(), vacancy.getCityId())) != null;
     }
 
     @Override
