@@ -18,12 +18,12 @@ private final AtomicInteger nextId = new AtomicInteger(1);
 private final Map<Integer, Candidate> candidates = new ConcurrentHashMap<>();
 
 private MemoryCandidateRepository() {
-    save(new Candidate(0, "Candidate for Intern Java Developer", "Description of the Candidate for intern", LocalDateTime.now(),true, 1));
-    save(new Candidate(0, "Candidate for Junior Java Developer", "Description of the Candidate for junior", LocalDateTime.now(),true, 3));
-    save(new Candidate(0, "Candidate for Junior+ Java Developer", "Description of the Candidate for junior+", LocalDateTime.now(),true, 3));
-    save(new Candidate(0, "Candidate for Middle Java Developer", "Description of the Candidate for middle", LocalDateTime.now(),true, 2));
-    save(new Candidate(0, "Candidate for Middle+ Java Developer", "Description of the Candidate for middle+", LocalDateTime.now(),true, 1));
-    save(new Candidate(0, "Candidate for Senior Java Developer", "Description of the Candidate for senior", LocalDateTime.now(),true, 2));
+    save(new Candidate(0, "Candidate for Intern Java Developer", "Description of the Candidate for intern", LocalDateTime.now(), true, 1));
+    save(new Candidate(0, "Candidate for Junior Java Developer", "Description of the Candidate for junior", LocalDateTime.now(), true, 3));
+    save(new Candidate(0, "Candidate for Junior+ Java Developer", "Description of the Candidate for junior+", LocalDateTime.now(), true, 3));
+    save(new Candidate(0, "Candidate for Middle Java Developer", "Description of the Candidate for middle", LocalDateTime.now(), true, 2));
+    save(new Candidate(0, "Candidate for Middle+ Java Developer", "Description of the Candidate for middle+", LocalDateTime.now(), true, 1));
+    save(new Candidate(0, "Candidate for Senior Java Developer", "Description of the Candidate for senior", LocalDateTime.now(), true, 2));
 }
 
     @Override

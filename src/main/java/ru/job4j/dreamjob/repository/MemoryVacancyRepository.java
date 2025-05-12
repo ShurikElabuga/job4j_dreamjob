@@ -19,11 +19,11 @@ public class MemoryVacancyRepository implements VacancyRepository {
 
     private MemoryVacancyRepository() {
         save(new Vacancy(0, "Intern Java Developer", "Description of the intern", LocalDateTime.now(), true, 1));
-        save(new Vacancy(0, "Junior Java Developer", "Description of the junior", LocalDateTime.now(),false, 3));
-        save(new Vacancy(0, "Junior+ Java Developer", "Description of the junior+", LocalDateTime.now(),true, 1));
-        save(new Vacancy(0, "Middle Java Developer", "Description of the middle", LocalDateTime.now(),true, 2));
-        save(new Vacancy(0, "Middle+ Java Developer", "Description of the middle+", LocalDateTime.now(),false, 3));
-        save(new Vacancy(0, "Senior Java Developer", "Description of the senior", LocalDateTime.now(),true, 1));
+        save(new Vacancy(0, "Junior Java Developer", "Description of the junior", LocalDateTime.now(), false, 3));
+        save(new Vacancy(0, "Junior+ Java Developer", "Description of the junior+", LocalDateTime.now(), true, 1));
+        save(new Vacancy(0, "Middle Java Developer", "Description of the middle", LocalDateTime.now(), true, 2));
+        save(new Vacancy(0, "Middle+ Java Developer", "Description of the middle+", LocalDateTime.now(), false, 3));
+        save(new Vacancy(0, "Senior Java Developer", "Description of the senior", LocalDateTime.now(), true, 1));
     }
 
     @Override
