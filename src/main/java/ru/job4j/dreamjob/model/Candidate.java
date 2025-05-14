@@ -10,17 +10,27 @@ public class Candidate {
     private LocalDateTime creationDate = LocalDateTime.now();
     private boolean visible;
     private int cityId;
+    private int fileId;
 
-    public Candidate(int id, String title, String description, LocalDateTime creationDate, boolean visible, int cityId) {
+    public Candidate(int id, String title, String description, LocalDateTime creationDate, boolean visible, int cityId, int fileId) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.visible = visible;
         this.cityId = cityId;
         this.creationDate = creationDate;
+        this.fileId = fileId;
     }
 
     public Candidate() {
+    }
+
+    public int getFileId() {
+        return fileId;
+    }
+
+    public void setFileId(int fileId) {
+        this.fileId = fileId;
     }
 
     public boolean getVisible() {

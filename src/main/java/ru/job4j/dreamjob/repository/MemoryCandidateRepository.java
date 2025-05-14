@@ -18,12 +18,12 @@ private final AtomicInteger nextId = new AtomicInteger(1);
 private final Map<Integer, Candidate> candidates = new ConcurrentHashMap<>();
 
 private MemoryCandidateRepository() {
-    save(new Candidate(0, "Candidate for Intern Java Developer", "Description of the Candidate for intern", LocalDateTime.now(), true, 1));
-    save(new Candidate(0, "Candidate for Junior Java Developer", "Description of the Candidate for junior", LocalDateTime.now(), true, 3));
-    save(new Candidate(0, "Candidate for Junior+ Java Developer", "Description of the Candidate for junior+", LocalDateTime.now(), true, 3));
-    save(new Candidate(0, "Candidate for Middle Java Developer", "Description of the Candidate for middle", LocalDateTime.now(), true, 2));
-    save(new Candidate(0, "Candidate for Middle+ Java Developer", "Description of the Candidate for middle+", LocalDateTime.now(), true, 1));
-    save(new Candidate(0, "Candidate for Senior Java Developer", "Description of the Candidate for senior", LocalDateTime.now(), true, 2));
+    save(new Candidate(0, "Candidate for Intern Java Developer", "Description of the Candidate for intern", LocalDateTime.now(), true, 1, 0));
+    save(new Candidate(0, "Candidate for Junior Java Developer", "Description of the Candidate for junior", LocalDateTime.now(), true, 3, 0));
+    save(new Candidate(0, "Candidate for Junior+ Java Developer", "Description of the Candidate for junior+", LocalDateTime.now(), true, 3, 0));
+    save(new Candidate(0, "Candidate for Middle Java Developer", "Description of the Candidate for middle", LocalDateTime.now(), true, 2, 0));
+    save(new Candidate(0, "Candidate for Middle+ Java Developer", "Description of the Candidate for middle+", LocalDateTime.now(), true, 1, 0));
+    save(new Candidate(0, "Candidate for Senior Java Developer", "Description of the Candidate for senior", LocalDateTime.now(), true, 2, 0));
 }
 
     @Override
@@ -41,7 +41,8 @@ private MemoryCandidateRepository() {
     @Override
     public boolean update(Candidate candidate) {
         return candidates.computeIfPresent(candidate.getId(),
-                (id, oldCandidate) -> new Candidate(oldCandidate.getId(), candidate.getTitle(), candidate.getDescription(), candidate.getCreationDate(), candidate.getVisible(), candidate.getCityId())) != null;
+                (id, oldCandidate) -> new Candidate(oldCandidate.getId(), candidate.getTitle(), candidate.getDescription(),
+                        candidate.getCreationDate(), candidate.getVisible(), candidate.getCityId(), candidate.getFileId())) != null;
     }
 
     @Override
