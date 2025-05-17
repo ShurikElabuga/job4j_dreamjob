@@ -48,7 +48,7 @@ public class Sql2oCandidateRepository implements CandidateRepository {
     public boolean update(Candidate candidate) {
         try (var connection = sql2o.open()) {
             var sql = """
-                    UPDATE vacancies
+                    UPDATE candidates
                     SET title = :title, description = :description, creation_date = :creationDate,
                         visible = :visible, city_id = :cityId, file_id = :fileId
                     WHERE id = :id
@@ -69,7 +69,7 @@ public class Sql2oCandidateRepository implements CandidateRepository {
     @Override
     public Optional<Candidate> findById(int id) {
         try (var connection = sql2o.open()) {
-            var query = connection.createQuery("SELECT * FROM vacancies WHERE id = :id");
+            var query = connection.createQuery("SELECT * FROM candidates WHERE id = :id");
             query.addParameter("id", id);
             var candidate = query.setColumnMappings(Candidate.COLUMN_MAPPING).executeAndFetchFirst(Candidate.class);
             return Optional.ofNullable(candidate);
@@ -79,7 +79,7 @@ public class Sql2oCandidateRepository implements CandidateRepository {
     @Override
     public Collection<Candidate> findAll() {
         try (var connection = sql2o.open()) {
-            var query = connection.createQuery("SELECT * FROM vacancies");
+            var query = connection.createQuery("SELECT * FROM candidates");
             return query.setColumnMappings(Candidate.COLUMN_MAPPING).executeAndFetch(Candidate.class);
         }
     }
