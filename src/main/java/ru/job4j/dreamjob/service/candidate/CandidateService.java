@@ -1,17 +1,19 @@
-package ru.job4j.dreamjob.repository;
+package ru.job4j.dreamjob.service.candidate;
 
+import ru.job4j.dreamjob.dto.FileDto;
 import ru.job4j.dreamjob.model.Candidate;
 import ru.job4j.dreamjob.model.Vacancy;
 
 import java.util.Collection;
 import java.util.Optional;
 
-public interface CandidateRepository {
-    Candidate save(Candidate candidate);
+public interface CandidateService {
+
+    Candidate save(Candidate candidate, FileDto image);
 
     boolean deleteById(int id);
 
-    boolean update(Candidate candidate);
+    boolean update(Candidate candidate, FileDto image);
 
     Optional<Candidate> findById(int id);
 

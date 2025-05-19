@@ -1,6 +1,5 @@
-package ru.job4j.dreamjob.repository;
+package ru.job4j.dreamjob.repository.city;
 
-import org.springframework.stereotype.Repository;
 import ru.job4j.dreamjob.model.City;
 
 import java.util.Collection;

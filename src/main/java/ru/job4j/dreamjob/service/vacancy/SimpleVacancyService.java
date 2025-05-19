@@ -1,10 +1,11 @@
-package ru.job4j.dreamjob.service;
+package ru.job4j.dreamjob.service.vacancy;
 
 import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Service;
 import ru.job4j.dreamjob.dto.FileDto;
 import ru.job4j.dreamjob.model.Vacancy;
-import ru.job4j.dreamjob.repository.VacancyRepository;
+import ru.job4j.dreamjob.repository.vacancy.VacancyRepository;
+import ru.job4j.dreamjob.service.file.FileService;
 
 import java.util.Collection;
 import java.util.Optional;

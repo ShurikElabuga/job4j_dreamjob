@@ -1,4 +1,4 @@
-package ru.job4j.dreamjob.repository;
+package ru.job4j.dreamjob.repository.user;
 
 
 import org.slf4j.Logger;
@@ -34,7 +34,7 @@ public class Sql2oUserRepository implements UserRepository {
             user.setId(generatedId);
             return Optional.of(user);
         } catch (Sql2oException e) {
-            LOGGER.error(e.getMessage());
+            LOGGER.error(e.getMessage(), e);
         }
         return Optional.empty();
     }
@@ -47,6 +47,9 @@ public class Sql2oUserRepository implements UserRepository {
             query.addParameter("password", password);
             var user = query.setColumnMappings(User.COLUMN_MAPPING).executeAndFetchFirst(User.class);
             return Optional.ofNullable(user);
+        } catch (Sql2oException e) {
+            LOGGER.error(e.getMessage(), e);
         }
+        return Optional.empty();
     }
 }
