@@ -9,7 +9,7 @@ import ru.job4j.dreamjob.model.User;
 
 @ThreadSafe
 @Controller
-@SuppressWarnings("unesed")
+@SuppressWarnings("unused")
 public class IndexController {
     @GetMapping({"/", "/index"})
     public String getIndex(Model model, HttpSession session) {

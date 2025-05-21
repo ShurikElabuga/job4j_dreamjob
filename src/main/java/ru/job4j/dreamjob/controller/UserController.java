@@ -15,6 +15,7 @@ import ru.job4j.dreamjob.service.user.UserService;
 @Controller
 @RequestMapping("/users")
 public class UserController {
+
     UserService userService;
 
     public UserController(UserService userService) {
